@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BuisnessCard</string>
+    <string name="my_title">Computer Science Student</string>
+    <string name="my_name">Aiden Cox</string>
+    <string name="phoneNumber">419-302-7372</string>
+    <string name="handle">aidenc17</string>
+    <string name="email">cox.378@wright.edu</string>
+</resources>
