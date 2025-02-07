@@ -9,14 +9,18 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Email
 import androidx.compose.material.icons.twotone.Share
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.focusModifier
@@ -37,7 +41,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BuisnessCardTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                    BusinessCardApp(modifier = Modifier.padding(innerPadding).fillMaxSize())
                 }
             }
         }
@@ -50,17 +54,22 @@ fun LogoNameTitle(
 ) {
     Column(modifier = modifier) {
         Image(
-            painter = painterResource(id = R.drawable.android_logo),
+            painter = painterResource(id = R.drawable.statefootball),
+            alignment = Alignment.Center,
+            contentScale = ContentScale.Fit,
             contentDescription = "Android Logo",
-            //contentScale = ContentScale.Fit,
+
             modifier = Modifier
                 .background(color = Color.Black)
-                .scale(0.75f)
-                .padding(8.dp)
+                .scale(2f)
+                .padding(32.dp)
         )
+        Spacer(modifier = Modifier.padding(24.dp))
+
         Text(stringResource(R.string.my_name),
             fontSize = 50.sp,
-            textAlign = TextAlign.Center)
+            textAlign = TextAlign.Center,
+            )
         Text(stringResource(R.string.my_title),
             fontSize = 30.sp,
             textAlign = TextAlign.Center)
@@ -77,11 +86,13 @@ fun ContactInfo(
             Icon(
                 painter = painterResource(R.drawable.baseline_contact_phone_24),
                 tint = Color.Green,
-                contentDescription = "phone contact image"
+                contentDescription = "phone contact image",
+
 
             )
             Text(
-                text = stringResource(R.string.phoneNumber)
+                text = stringResource(R.string.phoneNumber),
+                fontSize = 20.sp
             )
         }
 
@@ -92,12 +103,19 @@ fun ContactInfo(
                 contentDescription = "phone"
             )
             Text(
-                text = stringResource(R.string.handle)
+                text = stringResource(R.string.handle),
+                fontSize = 20.sp
             )
         }
         Row(){
+            Icon(
+                imageVector = Icons.TwoTone.Email,
+                tint = Color.DarkGray,
+                contentDescription = "email"
+            )
             Text(
-                text = stringResource(R.string.email)
+                text = stringResource(R.string.email),
+                fontSize = 20.sp
             )
         }
     }
@@ -108,11 +126,18 @@ fun BusinessCardApp(
     modifier: Modifier = Modifier
 ){
     Column(
-        modifier = Modifier,
+        modifier = Modifier.fillMaxWidth()
+            .background(Color.LightGray),
+
         verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.Start,
+
 
         ) {
         LogoNameTitle(modifier = Modifier)
+        Spacer(
+            modifier = Modifier.padding(10.dp)
+        )
 
         ContactInfo()
     }
