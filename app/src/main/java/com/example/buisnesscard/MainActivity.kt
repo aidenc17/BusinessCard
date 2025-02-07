@@ -85,7 +85,7 @@ fun ContactInfo(
         Row (){
             Icon(
                 painter = painterResource(R.drawable.baseline_contact_phone_24),
-                tint = Color.Green,
+                tint = Color.Red,
                 contentDescription = "phone contact image",
 
 
